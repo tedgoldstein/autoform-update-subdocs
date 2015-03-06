@@ -1,0 +1,31 @@
+<head>
+  <title>books</title>
+</head>
+
+<body>
+  <H1>Insert mode</H1>
+  {{> quickForm collection="Books" id="insertBookForm" type="insert"}}
+
+  <H1>Previous</H1>
+  {{> chooseBook }}
+
+  <H1>Update mode</H1>
+  {{> updateBook }}
+
+</body>
+
+<template name="chooseBook">
+    <select id="choice">
+        {{#each Books}}
+            <option value="{{this._id}}" > {{this.title}}</option>
+        {{/each}}
+    </select>
+</template>
+
+<template name="updateBook">
+{{chosenBook.title}}
+  {{> quickForm doc=chosenBook collection="Books" type="update"}}
+</template>
+
+
+
